@@ -45,7 +45,7 @@ def fun(bot, update):
     chat_id = update.message.chat_id
     #bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.TYPING)
     logger.info('User wants some fun in update %s',update)
-    update.message.reply_text('fun function is not implemented yet :(')
+    update.message.reply_text('People are ask me: what is devops? Is scripting and shit.')
 
 def about(bot, update):
     """Information about current instance"""
