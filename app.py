@@ -40,8 +40,8 @@ def help(bot, update):
     """Send a message when the command /help is issued."""
     update.message.reply_text('Help!')
 
-def fun(bot, update):
-    """Send a message when the command /fun is issued."""
+def fortune(bot, update):
+    """provide random quote."""
     chat_id = update.message.chat_id
     #bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.TYPING)
     logger.info('User wants some fun in update %s',update)
@@ -74,14 +74,14 @@ def main():
     dp = updater.dispatcher
 
     # on different commands - answer in Telegram
-    dp.add_handler(CommandHandler("start", start))
-    dp.add_handler(CommandHandler("help", help))
-    dp.add_handler(CommandHandler("fun", fun))
+    #dp.add_handler(CommandHandler("start", start))
+    #dp.add_handler(CommandHandler("help", help))
+    dp.add_handler(CommandHandler("fortune", fun))
     dp.add_handler(CommandHandler("about", about))
     dp.add_handler(CommandHandler("info", about))
 
     # on noncommand i.e message - echo the message on Telegram
-    dp.add_handler(MessageHandler(Filters.text, echo))
+    #dp.add_handler(MessageHandler(Filters.text, echo))
 
     # log all errors
     dp.add_error_handler(error)
