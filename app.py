@@ -44,7 +44,7 @@ def fortune(bot, update):
     """provide random quote."""
     chat_id = update.message.chat_id
     #bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.TYPING)
-    logger.info('User wants some fun in update %s',update)
+    logger.info('User wants some fortune in update %s',update)
     update.message.reply_text('People are ask me: what is devops? Is scripting and shit.')
 
 def about(bot, update):
@@ -76,7 +76,7 @@ def main():
     # on different commands - answer in Telegram
     #dp.add_handler(CommandHandler("start", start))
     #dp.add_handler(CommandHandler("help", help))
-    dp.add_handler(CommandHandler("fortune", fun))
+    dp.add_handler(CommandHandler("fortune", fortune))
     dp.add_handler(CommandHandler("about", about))
     dp.add_handler(CommandHandler("info", about))
 
