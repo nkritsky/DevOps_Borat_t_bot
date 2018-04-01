@@ -42,7 +42,7 @@ def fortune(bot, update):
     chat_id = update.message.chat_id
     #bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.TYPING)
     logger.info('User wants some fortune in update %s',update)
-    update.message.reply_text('People are ask me: what is devops? Is scripting and shit.')
+    update.message.reply_text(fun.get_one())
 
 def about(bot, update):
     """Information about current instance"""
@@ -50,6 +50,8 @@ def about(bot, update):
     update.message.reply_text('build version is '+VERSION)
     update.message.reply_text('running in OpenShift POD '+os.getenv("MY_POD_NAME"))
     update.message.reply_text('built from '+SOURCE)
+    update.message.reply_text('using fortune.py from https://github.com/goerz/fortune.py')
+    update.message.reply_text('using Devops_Borat fortune database from Noah Sussman')
 
 def echo(bot, update):
     """Echo the user message."""
@@ -66,6 +68,7 @@ def main():
     # Create the EventHandler and pass it your bot's token.
     TOKEN = os.getenv("BOT_CONFIG_token")
     updater = Updater(TOKEN)
+    fun.init()
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
