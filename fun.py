@@ -12,8 +12,7 @@ def init():
 	if not os.path.isfile(PATH_TO_FORTUNE):
 		print("Fortune database not found, downloading from "+URL_TO_FORTUNE+" ...")
 		urllib.urlretrieve(URL_TO_FORTUNE,PATH_TO_FORTUNE)
-	else:
-	#if exists fortune text and not exists fortune index - generate fortune index
+	#if exists fortune text - always generate fortune index
 		print ("refreshing the fortune index...")
 		fortune.make_fortune_data_file([PATH_TO_FORTUNE])
 def get_one():
