@@ -31,7 +31,7 @@ SOURCE = os.getenv("OPENSHIFT_BUILD_SOURCE")
 # update. Error handlers also receive the raised TelegramError object in error.
 def start(bot, update):
     """Send a message when the command /start is issued."""
-    update.message.reply_text("I'm a bot, please talk to me!")
+    update.message.reply_text('I'm a bot, please talk to me!\nenter "/fortune" to get random quote, "/info" to get bot status')
 
 def help(bot, update):
     """Send a message when the command /help is issued."""
@@ -53,9 +53,9 @@ def about(bot, update):
     update.message.reply_text('using fortune.py from https://github.com/goerz/fortune.py')
     update.message.reply_text('using Devops_Borat fortune database from Noah Sussman')
 
-def echo(bot, update):
+def default(bot, update):
     """Echo the user message."""
-    update.message.reply_text(update.message.text)
+    update.message.reply_text('can't understand this request. enter "/fortune" to get random quote, "/info" to get bot status')
 
 
 def error(bot, update, error):
@@ -81,7 +81,7 @@ def main():
     dp.add_handler(CommandHandler("info", about))
 
     # on noncommand i.e message - echo the message on Telegram
-    #dp.add_handler(MessageHandler(Filters.text, echo))
+    dp.add_handler(MessageHandler(Filters.text, default))
 
     # log all errors
     dp.add_error_handler(error)
