@@ -31,7 +31,7 @@ SOURCE = os.getenv("OPENSHIFT_BUILD_SOURCE")
 # update. Error handlers also receive the raised TelegramError object in error.
 def start(bot, update):
     """Send a message when the command /start is issued."""
-    update.message.reply_text('I'm a bot, please talk to me!\nenter "/fortune" to get random quote, "/info" to get bot status')
+    update.message.reply_text('I\'m a bot, please talk to me!\nenter "/fortune" to get random quote, "/info" to get bot status')
 
 def help(bot, update):
     """Send a message when the command /help is issued."""
