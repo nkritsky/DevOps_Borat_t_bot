@@ -55,7 +55,7 @@ def about(bot, update):
 
 def default(bot, update):
     """Echo the user message."""
-    update.message.reply_text('can't understand this request. enter "/fortune" to get random quote, "/info" to get bot status')
+    update.message.reply_text('can\'t understand this request. enter "/fortune" to get random quote, "/info" to get bot status')
 
 
 def error(bot, update, error):
