@@ -66,7 +66,8 @@ def error(bot, update, error):
 def main():
     """Start the bot."""
     # Create the EventHandler and pass it your bot's token.
-    TOKEN = os.getenv("BOT_CONFIG_token")
+    if "BOT_CONFIG_token" in os.environ: TOKEN = os.environ.get("BOT_CONFIG_token")
+    else: print ("Please set environment variable BOT_CONFIG_token to contain the Telegram bot token.\nexiting...");exit(255)
     updater = Updater(TOKEN)
     fun.init()
 
@@ -93,7 +94,7 @@ def main():
         updater.start_webhook(listen='0.0.0.0',
                       port=8080,
                       url_path=TOKEN)
-        print('setting webhook to: '+my_webhook_url+'/'+TOKEN)
+        #print('setting webhook to: '+my_webhook_url+'/'+TOKEN)
         updater.bot.set_webhook(webhook_url=my_webhook_url+'/'+TOKEN)
     else:
         updater.start_polling()
