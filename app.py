@@ -89,11 +89,12 @@ def main():
     # Start the Bot
     # if the environment variable BOT_CONFIG_service_url - register the webhook
     if "BOT_CONFIG_service_url" in os.environ:
-        webhook_url=os.environ.get("BOT_CONFIG_service_url")
+        my_webhook_url=os.environ.get("BOT_CONFIG_service_url")
         updater.start_webhook(listen='0.0.0.0',
                       port=8080,
                       url_path=TOKEN)
-        updater.bot.set_webhook(webhook_url=webhook_url+'/'+TOKEN)
+        print('setting webhook to: '+my_webhook_url+'/'+TOKEN)
+        updater.bot.set_webhook(webhook_url=my_webhook_url+'/'+TOKEN)
     else:
         updater.start_polling()
         # Run the bot until you press Ctrl-C or the process receives SIGINT,
