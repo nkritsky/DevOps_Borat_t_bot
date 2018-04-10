@@ -93,7 +93,7 @@ def main():
         updater.start_webhook(listen='0.0.0.0',
                       port=8080,
                       url_path=TOKEN)
-        updater.bot.set_webhook(webhook_url=webhook_url+'/TOKEN')
+        updater.bot.set_webhook(webhook_url=webhook_url+'/'+TOKEN)
     else:
         updater.start_polling()
         # Run the bot until you press Ctrl-C or the process receives SIGINT,
